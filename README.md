@@ -21,3 +21,7 @@ React.js / Vue.js / Svelt 등 install 해서 사용 하면 됩니다.
 with npm: `npm install coldbrew-core`
 
 with yarn: `yarn add coldbrew-core`
+
+## 프로젝트 Prototype 버전
+
+[ColdBrew Prototype 버전](https://github.com/ahnytae/ColdBrew-Core_old)
