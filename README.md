@@ -1,7 +1,5 @@
 # ColdBrew API for TypeScript
 
----
-
 [ColdBrew API 상세 스펙](https://www.notion.so/as333/ColdBrew-Core-Api-40112f1562ee488fbfa89c624e2a8519)
 
 [ColdBrew NPM](https://www.npmjs.com/package/coldbrew-core)
@@ -16,11 +14,9 @@ React.js / Vue.js / Svelt 등 install 해서 사용 하면 됩니다.
 
 현재는 최소한의 기능이지만 계속해서 기능 추가/ 업데이트 할 계획 입니다.
 
-(화이트보드, mash 방식 등)
+(화이트보드, UI 애니메이션, MCU 방식 등)
 
 ## Setup
-
----
 
 with npm: `npm install coldbrew-core`
 
