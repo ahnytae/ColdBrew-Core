@@ -1,0 +1,25 @@
+{
+  "name": "coldbrew-core",
+  "version": "1.0.0",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ahnytae/ColdBrew-Core.git"
+  },
+  "bugs": {
+    "url": "https://github.com/ahnytae/ColdBrew-Core/issues"
+  },
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "start": "tsc && node src/index.ts",
+    "build": "tsc"
+  },
+  "devDependencies": {
+    "ts-node": "^10.4.0"
+  },
+  "dependencies": {
+    "socket.io-client": "^4.3.2",
+    "typescript": "^4.4.4"
+  }
+}
