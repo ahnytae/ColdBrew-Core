@@ -7,11 +7,7 @@ export class SignalingController extends ColdBrew {
   private static WS: Socket;
   private static myPeerConnection: RTCPeerConnection;
   private static readonly STUN_URL = {
-    iceServers: [
-      {
-        urls: "stun:relay.webwormhole.io:3478",
-      },
-    ],
+    iceServers: [{ urls: "stun:stun.l.google.com:19302" }, { urls: "stun:global.stun.twilio.com:3478?transport=udp" }],
   };
 
   private constructor() {
