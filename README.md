@@ -36,5 +36,10 @@ with yarn: `yarn add coldbrew-core`
 
 ## 사용 기술
 
- <img src="https://img.shields.io/badge/node-16.13.0-339933?logo=node.js">  <img src="https://img.shields.io/badge/Socket.io-4.3.2-010101?logo=Socket.io">  [![Heroku](https://heroku-badge.herokuapp.com/?app=heroku-badge)]
+## <img src="https://flat.badgen.net/badge/-/TypeScript?icon=typescript&label&labelColor=blue&color=555555"> <img src="https://img.shields.io/badge/node-16.13.0-339933?logo=node.js">  <img src="https://img.shields.io/badge/Socket.io-4.3.2-010101?logo=Socket.io">
 
+
+
+## DEMO (임시용)
+
+[ColdBrew Demo](https://coldbrew-demo.herokuapp.com)
