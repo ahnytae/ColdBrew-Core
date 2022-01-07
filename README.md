@@ -28,6 +28,20 @@ with yarn: `yarn add coldbrew-core`
 
 
 
+## 실행
+
+1. 같은 네트워크 망 에서 사용 (= 와이파이)
+
+   > (chrome) 탭 2개 띄우고 같은 방 이름으로 접속. 
+
+   
+
+2. 다른 네트워크 망에서 사용 (LTE <-> 와이파이)
+
+   > [stun 이슈 링크](https://github.com/ahnytae/ColdBrew-Core/issues /1)
+
+
+
 ## 프로젝트 (초기)Prototype 버전
 
 [ColdBrew Prototype 버전](https://github.com/ahnytae/ColdBrew-Core_old)
