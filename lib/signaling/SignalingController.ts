@@ -1,6 +1,7 @@
 import { io, Socket } from "socket.io-client";
 import { ChangeDeviceType } from "../index";
 import { ColdBrew } from "../service/Core";
+import { RoomInfo } from "./Signaling";
 
 export class SignalingController extends ColdBrew {
   //
@@ -29,24 +30,14 @@ export class SignalingController extends ColdBrew {
     this.onLeaveRoom();
   }
 
-  static async onLeaveRoom() {
-    SignalingController.WS.on("leave", (status: string) => {
-      console.log("leave!!", status);
-      status;
-    });
-
-    SignalingController.WS.on("leave-user", (status: any) => {
-      console.log("user left!!", status);
-      status;
-    });
-  }
-
-  static async leaveRoomHandler(videoEl: HTMLVideoElement) {
-    SignalingController.WS.emit("leave-room");
-    const stream = ColdBrew.MyStream;
-    stream.getVideoTracks().map((track: MediaStreamTrack) => {
-      track.stop();
-      videoEl.srcObject = null;
+  static onLeaveRoom() {
+    SignalingController.WS.on("leave", () => {
+      console.log("left User");
+      const stream = ColdBrew.MyStream;
+      stream.getVideoTracks().map((track: MediaStreamTrack) => {
+        track.stop();
+        // videoEl.srcObject = null;
+      });
     });
   }
 
@@ -69,16 +60,12 @@ export class SignalingController extends ColdBrew {
   }
 
   static connectSocket(roomName: string) {
-    // this.makePeerConnection(remoteVideoEl);
+    //
 
     /** socket area **/
     // role: offer
-    SignalingController.WS.on("Room-Info", (room: string, user: string) => {
-      console.log("%c [ColdBrew] Join Room|User", room, user);
-    });
-
-    SignalingController.WS.on("success-join", async (room: string, user: string) => {
-      console.log("%c [ColdBrew] success join", "color: #f3602b", `roomname: ${room}, username: ${user}`);
+    SignalingController.WS.on("success-join", async () => {
+      console.log("%c [ColdBrew] success join", "color: #f3602b");
 
       // create offer + sdp
       const offer = await SignalingController.myPeerConnection.createOffer();
@@ -131,5 +118,19 @@ export class SignalingController extends ColdBrew {
       return;
     }
     console.error("Stream not found");
+  }
+
+  static getRoomInfo() {
+    SignalingController.WS.on("Room-Info", (roomInfo: RoomInfo) => {
+      console.log("%c [ColdBrew] get Room Info..", roomInfo);
+      return roomInfo;
+    });
+  }
+
+  static getMeInfo() {
+    SignalingController.WS.on("Me-Info", (userName: string) => {
+      console.log("%c [ColdBrew] get Me Info..", userName);
+      return userName;
+    });
   }
 }
