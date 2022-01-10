@@ -24,16 +24,27 @@ class SignalingController extends Core_1.ColdBrew {
         await this.init();
         SignalingController.WS.emit("join-room", roomName, userName);
         this.connectSocket(roomName);
-        this.onLeaveRoom();
+        // this.onLeaveRoom();
     }
     static onLeaveRoom() {
-        SignalingController.WS.on("leave", () => {
-            console.log("left User");
-            const stream = Core_1.ColdBrew.MyStream;
-            stream.getVideoTracks().map((track) => {
-                track.stop();
-                // videoEl.srcObject = null;
-            });
+        console.log("left User");
+        const stream = Core_1.ColdBrew.MyStream;
+        stream.getVideoTracks().map((track) => {
+            track.stop();
+        });
+    }
+    // socket event
+    static SignalEvent(name, callbackFn) {
+        if (typeof name !== "string" || typeof callbackFn !== "function") {
+            console.error("need to type check");
+            return;
+        }
+        SignalingController.WS.emit(name);
+        SignalingController.WS.on(name, () => {
+            if (name === "leave") {
+                this.onLeaveRoom(); // track 멈춰주기
+            }
+            callbackFn(); // fe에서 실행 될 콜백함수
         });
     }
     // replace addStream to getTracks()

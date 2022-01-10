@@ -18,7 +18,7 @@ export class SignalingController extends ColdBrew {
     console.log("%c [ColdBrew] connected socket", "color: skyblue", SignalingController.WS);
   }
 
-  static async init(): Promise<SignalingController> {
+  private static async init(): Promise<SignalingController> {
     return new SignalingController();
   }
 
@@ -27,17 +27,31 @@ export class SignalingController extends ColdBrew {
     await this.init();
     SignalingController.WS.emit("join-room", roomName, userName);
     this.connectSocket(roomName);
-    this.onLeaveRoom();
+    // this.onLeaveRoom();
   }
 
-  static onLeaveRoom() {
-    SignalingController.WS.on("leave", () => {
-      console.log("left User");
-      const stream = ColdBrew.MyStream;
-      stream.getVideoTracks().map((track: MediaStreamTrack) => {
-        track.stop();
-        // videoEl.srcObject = null;
-      });
+  private static onLeaveRoom() {
+    console.log("left User");
+    const stream = ColdBrew.MyStream;
+    stream.getVideoTracks().map((track: MediaStreamTrack) => {
+      track.stop();
+    });
+  }
+
+  // socket event
+  static SignalEvent(name: string, callbackFn: any) {
+    if (typeof name !== "string" || typeof callbackFn !== "function") {
+      console.error("need to type check");
+      return;
+    }
+
+    SignalingController.WS.emit(name);
+
+    SignalingController.WS.on(name, () => {
+      if (name === "leave") {
+        this.onLeaveRoom(); // track 멈춰주기
+      }
+      callbackFn(); // fe에서 실행 될 콜백함수
     });
   }
 
