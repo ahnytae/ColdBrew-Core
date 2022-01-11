@@ -45,7 +45,7 @@ class SignalingController extends Core_1.ColdBrew {
             if (name === "leave") {
                 this.onLeaveRoom(); // track 멈춰주기~
             }
-            callbackFn(); // fe에서 실행 될 콜백함수
+            return callbackFn(); // fe에서 실행 될 콜백함수
         });
     }
     // replace addStream to getTracks()
