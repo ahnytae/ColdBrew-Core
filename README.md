@@ -60,6 +60,10 @@ with yarn: `yarn add coldbrew-core`
 
 
 
+[![Demo Video]](https://youtu.be/g4fElaWmBhk)
+
+
+
 ## 기능
 
 - 방입장/나가기 
