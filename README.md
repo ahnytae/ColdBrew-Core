@@ -12,11 +12,11 @@
 
 ColdBrew 프로젝트는 <b>webRTC</b>를 쉽게 사용하게 만든 API 입니다.
 
-React.js / Vue.js / Svelt 등 install 해서 사용 하면 됩니다.
+React.js / Vue.js / Svelte 등 import 해서 사용 하면 됩니다.
 
 현재는 최소한의 기능이지만 계속해서 기능 추가/ 업데이트 할 계획 입니다.
 
-(화이트보드, UI 애니메이션, nginx추가, MCU 방식 등)
+(화이트보드기능 추가, UI 애니메이션, nginx추가 등)
 
 
 
@@ -36,7 +36,7 @@ with yarn: `yarn add coldbrew-core`
 
    
 
-2. 다른 네트워크 망에서 사용 (LTE <-> 와이파이)
+2. 다른 네트워크 망에서 사용 (LTE <-> 와이파이) (*불가*)
 
    > [stun 이슈 링크](https://github.com/ahnytae/ColdBrew-Core/issues /1)
 
@@ -54,6 +54,14 @@ with yarn: `yarn add coldbrew-core`
 
 
 
-## DEMO (임시용)
+## DEMO (임시)
 
-[ColdBrew Demo](https://coldbrew-demo.herokuapp.com)
+[ColdBrew Demo](https://coldbrew-demo.herokuapp.com) (급하게 만든 임시 버전이며 새롭게 다시 만들 예정)
+
+
+
+## 기능
+
+- 방입장/나가기 
+- 장치 변경(버그 수정중)
+- 카메라/마이크 on/off
