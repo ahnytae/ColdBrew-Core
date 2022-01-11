@@ -60,7 +60,9 @@ with yarn: `yarn add coldbrew-core`
 
 
 
-[![Demo Video]](https://youtu.be/g4fElaWmBhk)
+[video]
+
+[![Demo Video](https://i9.ytimg.com/vi/g4fElaWmBhk/mqdefault.jpg?sqp=CPjj9I4G&rs=AOn4CLBpI-3GCJp6vYx0NUfyy_CxDLYoMw)](https://youtu.be/g4fElaWmBhk) 
 
 
 
