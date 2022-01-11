@@ -27,7 +27,7 @@ class SignalingController extends Core_1.ColdBrew {
         // this.onLeaveRoom();
     }
     static onLeaveRoom() {
-        console.log("left User");
+        console.log("left User, onLeaveRoom!");
         const stream = Core_1.ColdBrew.MyStream;
         stream.getVideoTracks().map((track) => {
             track.stop();
@@ -39,10 +39,11 @@ class SignalingController extends Core_1.ColdBrew {
             console.error("need to type check");
             return;
         }
-        SignalingController.WS.emit(name);
+        console.log("@@ leave emit", name, callbackFn);
+        SignalingController.WS.emit(name, callbackFn);
         SignalingController.WS.on(name, () => {
             if (name === "leave") {
-                this.onLeaveRoom(); // track 멈춰주기
+                this.onLeaveRoom(); // track 멈춰주기~
             }
             callbackFn(); // fe에서 실행 될 콜백함수
         });
@@ -123,7 +124,6 @@ class SignalingController extends Core_1.ColdBrew {
     static getMeInfo() {
         SignalingController.WS.on("Me-Info", (userName) => {
             console.log("%c [ColdBrew] get Me Info..", userName);
-            return userName;
         });
     }
 }
