@@ -69,5 +69,5 @@ with yarn: `yarn add coldbrew-core`
 ## 기능
 
 - 방입장/나가기 
-- 장치 변경(버그 수정중)
+- 장치 변경 (카메라/마이크)
 - 카메라/마이크 on/off
