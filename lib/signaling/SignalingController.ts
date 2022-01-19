@@ -5,13 +5,13 @@ import { RoomInfo } from "./Signaling";
 
 export class SignalingController extends ColdBrew {
   //
-  private static WS: Socket;
+  protected static WS: Socket;
   private static myPeerConnection: RTCPeerConnection;
   private static readonly STUN_URL = {
     iceServers: [{ urls: "stun:stun.l.google.com:19302" }, { urls: "stun:global.stun.twilio.com:3478?transport=udp" }],
   };
 
-  private constructor() {
+  protected constructor() {
     super();
     SignalingController.WS = io("https://coldbrew-backend.herokuapp.com");
     console.log("%c HELLO ColdBrew", "color: hotpink; font-size:40px; background:black");
