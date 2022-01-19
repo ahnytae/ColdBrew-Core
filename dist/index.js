@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.SignalingController = exports.GetUserDevicesError = exports.GetUserDevices = exports.ColdBrew = void 0;
+exports.WBSendMessage = exports.SignalingController = exports.GetUserDevicesError = exports.GetUserDevices = exports.ColdBrew = void 0;
 const Core_1 = require("./service/Core");
 Object.defineProperty(exports, "ColdBrew", { enumerable: true, get: function () { return Core_1.ColdBrew; } });
 const device_1 = require("./device");
@@ -8,3 +8,5 @@ Object.defineProperty(exports, "GetUserDevices", { enumerable: true, get: functi
 Object.defineProperty(exports, "GetUserDevicesError", { enumerable: true, get: function () { return device_1.GetUserDevicesError; } });
 const signaling_1 = require("./signaling");
 Object.defineProperty(exports, "SignalingController", { enumerable: true, get: function () { return signaling_1.SignalingController; } });
+const whiteboard_1 = require("./whiteboard");
+Object.defineProperty(exports, "WBSendMessage", { enumerable: true, get: function () { return whiteboard_1.WBSendMessage; } });

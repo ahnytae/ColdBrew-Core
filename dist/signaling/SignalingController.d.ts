@@ -1,10 +1,11 @@
+import { Socket } from "socket.io-client";
 import { ChangeDeviceType } from "../index";
 import { ColdBrew } from "../service/Core";
 export declare class SignalingController extends ColdBrew {
-    private static WS;
+    protected static WS: Socket;
     private static myPeerConnection;
     private static readonly STUN_URL;
-    private constructor();
+    protected constructor();
     private static init;
     static joinRoom(roomName: string, userName: string): Promise<void>;
     private static onLeaveRoom;
