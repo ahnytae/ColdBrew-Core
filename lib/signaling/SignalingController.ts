@@ -8,7 +8,13 @@ export class SignalingController extends ColdBrew {
   protected static WS: Socket;
   private static myPeerConnection: RTCPeerConnection;
   private static readonly STUN_URL = {
-    iceServers: [{ urls: "stun:stun.l.google.com:19302" }, { urls: "stun:global.stun.twilio.com:3478?transport=udp" }],
+    iceServers: [
+      {
+        urls: ["turn:13.250.13.83:3478?transport=udp"],
+        username: "YzYNCouZM1mhqhmseWk6",
+        credential: "YzYNCouZM1mhqhmseWk6",
+      },
+    ],
   };
 
   protected constructor() {
